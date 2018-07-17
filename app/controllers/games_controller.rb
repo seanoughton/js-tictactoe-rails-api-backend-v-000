@@ -13,15 +13,12 @@ class GamesController < ApplicationController
 
   def create
     @game = Game.create(game_params)
-    #@game = Game.create#(game_params)
-    #@game.state = params[:state]
-    #@game.save
     render json: @game, status: 201
   end
 
   def update
     @game = Game.find(params[:id])
-    @game.update(state: params[:state])
+    @game.update(game_params)
     render json: @game, status: 201
   end
 
