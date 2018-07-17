@@ -8,9 +8,11 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(game_params)
-   #redirect_to post_path(@post)
-   render json: @game, status: 201
+    byebug
+    @game = Game.create#(game_params)
+    @game.state = params[:state]
+    @game.save
+    render json: @game, status: 201
   end
 
   def update
@@ -19,7 +21,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:state)
+    params.require(:state)
   end
 
 end
