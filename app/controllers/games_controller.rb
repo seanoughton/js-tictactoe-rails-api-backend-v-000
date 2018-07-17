@@ -5,10 +5,11 @@ class GamesController < ApplicationController
   end
 
   def show
+    @game = Game.find(params[:id])
+    render json: @game, status: 201
   end
 
   def create
-    byebug
     @game = Game.create#(game_params)
     @game.state = params[:state]
     @game.save
