@@ -17,9 +17,8 @@ class GamesController < ApplicationController
   end
 
   def update
-    byebug
     @game = Game.find(params[:id])
-    @game.update()
+    @game.update(state: params[:state])
     render json: @game, status: 201
   end
 
