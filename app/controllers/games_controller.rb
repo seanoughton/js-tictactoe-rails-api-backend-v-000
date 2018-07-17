@@ -17,6 +17,10 @@ class GamesController < ApplicationController
   end
 
   def update
+    byebug
+    @game = Game.find(params[:id])
+    @game.update()
+    render json: @game, status: 201
   end
 
 
