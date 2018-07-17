@@ -12,7 +12,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    @game = Game.create(state: params[:state])
+    @game = Game.create(game_params)
     #@game = Game.create#(game_params)
     #@game.state = params[:state]
     #@game.save
